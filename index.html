@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>for you</title>
+    <style>
+        body {
+            margin: 0;
+            overflow-x: hidden; /* ป้องกันการเลื่อนทางซ้ายขวา */
+            overflow-y: auto; /* เลื่อนขึ้นลงได้ */
+            background: #0a0a0a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            position: relative;
+            background-size: cover;
+            transition: background 1s ease;
+        }
+
+        .raindrop {
+            position: absolute;
+            width: 2px;
+            height: 15px;
+            background: rgba(173, 216, 230, 0.7);
+            opacity: 0.7;
+        }
+
+        .center-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center; 
+            max-width: 100%; /* ป้องกันการล้นไปทางขวา */
+        }
+
+        .center-image {
+            width: 1500px; /* ลดขนาดรูปให้เหมาะสม */
+            height: auto;
+            z-index: 10;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .center-image:active {
+            animation: shake 0.4s ease-in-out;
+        }
+
+        /* Animation การเด้งซ้ายขวา */
+        @keyframes shake {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(-15px, -15px); }
+            50% { transform: translate(15px, 15px); }
+            75% { transform: translate(-15px, -15px); }
+            100% { transform: translate(15px, 15px); }
+        }
+
+        .text-overlay {
+            position: absolute;
+            color: white;
+            font-size: 60px; /* เพิ่มขนาดข้อความ 3 เท่า */
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            top: 280px;
+            animation: bounce 1.5s infinite ease-in-out;
+            font-family: Noto Sans Thai;
+            z-index: 5; /* ให้ข้อความแสดงอยู่บนสุด */
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .extra-text {
+            position: relative;
+            color: white;
+            font-size: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            font-family: Poppins;
+            display: none; /* ซ่อนข้อความเริ่มต้น */
+            padding: 10px;
+            max-width: 100%; /* ป้องกันข้อความเกินขอบ */
+            line-height: 1.5;
+            font-family: Noto Sans Thai;
+            margin-top: 20px; /* เพิ่มระยะห่างจากรูป */
+            z-index: 1; /* ให้ข้อความแสดงอยู่ข้างล่างสุด */
+            overflow-wrap: break-word; /* ตัดข้อความยาวๆ ให้พอดีกับหน้าจอ */
+        }
+
+        @media (max-width: 1024px) {
+            .center-image {
+                width: 100%; /* ขยายรูปให้เต็มหน้าจอ */
+                height: auto;
+            }
+
+            .extra-text {
+                font-size: 30px; /* ลดขนาดตัวอักษรให้เล็กลง */
+                margin-top: 20px;
+            }
+
+            .text-overlay {
+                font-size: 40px; /* ลดขนาดตัวอักษรให้เหมาะสม */
+                top: 180px; /* ปรับตำแหน่งข้อความให้เหมาะสม */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="center-container">
+        <img src="ffff.png" alt="Centered Image" class="center-image" id="image">
+        <div class="text-overlay" id="text">Click Tanjiro</div>
+        <div class="extra-text" id="extraText">
+            สุขสันต์วันวาเลนไทน์นะอันอัน วันวาเลนไทน์คือวันแห่งความรักใช่มั้ย 
+            งั้นเขาขอให้อันอันได้รับความรักจากทุกคนรอบข้างเยอะๆนะ ทั้งจากครอบครัว เพื่อนๆ ทุกคนเลย 
+            ขอให้อันอันตั้งใจเรียนด้วยนะ จะได้เป็นเภสัชตามที่ฝันนะ เว็ปนี้อาจจะลวกๆนิดนึงเขาพึ่งว่ามาทำเลย555
+            ขอบคุณนะที่อันอันมาเล่นโรบ้อกกับเขาบ่อยๆเขาสนุกมาดเลยแหละอิอิ 
+            แล้วก็ขอให้ทุกวันหลังจากวาเลนไทน์นี้เป็นวันที่ดีของอันอันนะ
+            ยิ้มเยอะๆนะอันอันเพราะรอยยิ้มของอันอันสดใสที่สุดในโลกเลย
+        </div>
+    </div>
+    <script>
+        let clickCount = 0;
+        const imageElement = document.getElementById("image");
+        const bodyElement = document.body;
+        const textElement = document.getElementById("text");
+        const extraTextElement = document.getElementById("extraText");
+        let rainInterval;
+
+        imageElement.addEventListener("click", () => {
+            clickCount++;
+
+            // เมื่อคลิกครบ 3 ครั้ง ให้เปลี่ยนรูปเป็น rose.png
+            if (clickCount === 3) {
+                imageElement.src = "rose.png"; // เปลี่ยนรูป
+                imageElement.classList.remove("center-image"); // เอาฟังก์ชั่นสั่นออก
+                bodyElement.style.backgroundImage = "url('love.gif')"; // เปลี่ยนพื้นหลังเป็น love.gif
+                textElement.textContent = "Happy Valentine's Day"; // เปลี่ยนข้อความ
+                textElement.style.zIndex = "5"; // ให้ข้อความแสดงอยู่บนสุด
+                extraTextElement.style.display = "block"; // แสดงข้อความพิเศษ
+                clearInterval(rainInterval); // หยุดฝนตก
+                clickCount = 0; // รีเซ็ตจำนวนการคลิกเพื่อเริ่มใหม่
+            }
+
+            // เพิ่มแอนิเมชั่นการสั่นเฉพาะตอนที่ยังเป็น ffff.png
+            if (imageElement.src.indexOf("ffff.png") !== -1) {
+                imageElement.classList.add("center-image");
+
+                // ลบแอนิเมชั่นหลังจากสั่นเสร็จ
+                setTimeout(() => {
+                    imageElement.classList.remove("center-image");
+                }, 400); // ระยะเวลาแอนิเมชั่น 0.4 วินาที
+            }
+        });
+
+        function createRaindrop() {
+            const rain = document.createElement("div");
+            rain.classList.add("raindrop");
+            rain.style.left = Math.random() * window.innerWidth + "px";
+            rain.style.top = "-20px";
+            document.body.appendChild(rain);
+
+            let fallSpeed = Math.random() * 3 + 2;
+            let wind = (Math.random() - 0.5) * 2;
+            let position = 0;
+
+            function fall() {
+                if (position < window.innerHeight) {
+                    position += fallSpeed;
+                    rain.style.top = position + "px";
+                    rain.style.left = parseFloat(rain.style.left) + wind + "px";
+                    requestAnimationFrame(fall);
+                } else {
+                    rain.remove();
+                }
+            }
+            fall();
+        }
+
+        // สร้างฝนตก
+        rainInterval = setInterval(createRaindrop, 50);
+    </script>
+</body>
+</html>
