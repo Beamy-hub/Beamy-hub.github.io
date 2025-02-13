@@ -44,7 +44,7 @@
             height: auto;
             z-index: 10;
             transition: transform 0.2s ease-in-out;
-            margin-top: 0; /* ลบระยะห่างด้านบน */
+            margin-top: 20px; /* ลบระยะห่างด้านบน */
             object-fit: contain;
         }
 
@@ -67,10 +67,12 @@
             font-size: 60px; /* เพิ่มขนาดข้อความ 3 เท่า */
             font-weight: bold;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            top: 280px;
+            top: 600px; /* ปรับจาก 280px เป็น 300px */
             animation: bounce 1.5s infinite ease-in-out;
             font-family: Noto Sans Thai;
             z-index: 5; /* ให้ข้อความแสดงอยู่บนสุด */
+            margin-top: 2cm;
+            padding-top: 10px; /* เพิ่มระยะห่างด้านบน */
         }
 
         @keyframes bounce {
@@ -109,7 +111,7 @@
             สุขสันต์วันวาเลนไทน์นะอันอัน วันวาเลนไทน์คือวันแห่งความรักใช่มั้ย 
             งั้นเขาขอให้อันอันได้รับความรักจากทุกคนรอบข้างเยอะๆนะ ทั้งจากครอบครัว เพื่อนๆ ทุกคนเลย 
             ขอให้อันอันตั้งใจเรียนด้วยนะ จะได้เป็นเภสัชตามที่ฝันนะ เว็ปนี้อาจจะลวกๆนิดนึงเขาพึ่งว่างมาทำเลย555
-            ขอบคุณนะที่อันอันมาเล่นโรบ้อกกับเขาบ่อยๆเขาสนุกมาดเลยแหละอิอิ 
+            ขอบคุณนะที่อันอันมาเล่นโรบ้อกกับเขาบ่อยๆเขาสนุกมากเลยแหละอิอิ 
             แล้วก็ขอให้ทุกวันหลังจากวาเลนไทน์นี้เป็นวันที่ดีของอันอันนะ
             ยิ้มเยอะๆนะอันอันเพราะรอยยิ้มของอันอันสดใสที่สุดในโลกเลย
         </div>
@@ -130,7 +132,7 @@
                 imageElement.src = "rose.png"; // เปลี่ยนรูป
                 imageElement.classList.remove("center-image"); // เอาฟังก์ชั่นสั่นออก
                 bodyElement.style.backgroundImage = "url('love.gif')"; // เปลี่ยนพื้นหลังเป็น love.gif
-                textElement.textContent = "Happy Valentine's Day"; // เปลี่ยนข้อความ
+                textElement.textContent = " Happy Valentine's Day "; // เปลี่ยนข้อความ
                 textElement.style.zIndex = "5"; // ให้ข้อความแสดงอยู่บนสุด
                 extraTextElement.style.display = "block"; // แสดงข้อความพิเศษ
                 clearInterval(rainInterval); // หยุดฝนตก
