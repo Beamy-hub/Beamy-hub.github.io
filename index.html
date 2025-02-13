@@ -40,11 +40,12 @@
         }
 
         .center-image {
-            width: 1500px; /* ลดขนาดรูปให้เหมาะสม */
+            width: 100%; /* ให้รูปขยายเต็มหน้าจอ */
             height: auto;
             z-index: 10;
             transition: transform 0.2s ease-in-out;
-            margin-top: 200px;
+            margin-top: 0; /* ลบระยะห่างด้านบน */
+            object-fit: contain;
         }
 
         .center-image:active {
